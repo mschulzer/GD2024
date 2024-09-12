@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let land = prompt("Indtast venligst oprindelsesland: ");
+        console.log("Du indtastede " + land);
+
+
+        /* EKSEMPEL 1: individuel benægtelse + AND ( && ) */
+
+        if (
+            land != "Danmark"   &&  // I tilfældet "Grækenland", returnerer første betingelse true; der fortsættes
+            land != "Grønland"  &&  // ... anden betingelse returnerer true; fortsættes ... tredje returnerer true;
+            land != "Færøerne"      // hele konditionalet returnerer således true - og der console.log()'es.
+            ) {
+
+            console.log("Du skal bruge Swift.");
+        }
+
+        
+        /* EKSEMPEL 2: individuel benægtelse + OR ( || ) */
+
+        if (
+            land != "Danmark"   ||  // I tilfældet "Grækenland", returnerer første betingelse true - og hele
+            land != "Grønland"  ||  // konditionalet returnerer så allerede true, idet der ikke er nogen grund til
+            land != "Færøerne"      // at fortsætte! Med en OR ( || ) kræves mao. kun en enkelt sand betingelse.
+            ) {
+
+            console.log("Du skal bruge Swift.");
+        }
+
+        /* EKSEMPEL 3: De Morgans Lov */
+
+        if (!(                       // Bemærk forskellen fra EKSEMPEL 2 ovenfor: hele dette konditionale er
+            land == "Danmark"  ||    // pakket ind i parenteser, og så benægtes HELE udtrykket. Dette kaldes også
+            land == "Grønland" ||    // "De Morgans Lov", hvor !(A == B || A == C) opløses til EKSEMPEL 1 ovenfor,
+            land == "Færøerne"       // dvs. (A != B && A != C).
+            )) {
+
+            console.log("Du skal bruge Swift.");
+        }
+
+    </script>
+</body>
+</html>
